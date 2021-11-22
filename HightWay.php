@@ -1,12 +1,22 @@
 <?php
 
-abstract class Vehicle
+abstract class HightWay
 
 {
-    protected array $currentVehicles;
+    protected array $currentVehicles = [];
     protected int $nbLane;
     protected int $maxSpeed;
-    
+
+public function __construct(int $nbLane, int $maxSpeed)
+
+ {
+     $this->nbLane = $nbLane;
+     $this->maxSpeed = $maxSpeed;
+ }
+
+ abstract public function addVehicle(Vehicle $vehicle);
+
+
     public function getCurrentVehicles()
     {
         return $this->currentVehicles;
