@@ -6,8 +6,7 @@ abstract class Vehicle
     protected array $currentVehicles;
     protected int $nbLane;
     protected int $maxSpeed;
-    protected int $residantialAway;
-
+    
     public function getCurrentVehicles()
     {
         return $this->currentVehicles;
