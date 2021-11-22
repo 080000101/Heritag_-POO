@@ -1,23 +1,27 @@
 <?php
 
-require_once 'car.php';
+require_once 'MotorWay.php';
+require_once 'PedestrianWay.php';
+require_once 'ResidentialWay.php';
+require_once 'Car.php';
+require_once 'Truck.php';
+require_once 'Skateboard.php';
+require_once 'Bicycle.php';
 
-$car = new Car('green', 4, 'electric');
+$motor = new MotorWay(4, 130);
+$pedestrian = new PedestrianWay(1, 10);
+$residential = new ResidentialWay(2, 50);
 
-echo $car->forward();
+$voiture = new Car("blue", 5, "fuel");
+$vélo = new Bicycle("blue", 1);
 
-var_dump($car);
+echo $motor->addVehicle($voiture);
 
-
-require_once 'truck.php';
-
-$truck = new Truck('red', 2, 'Fuel', 8, 100);
-$truck->IsFull();
-$truck->setCurrentSpeed(15);
-var_dump($truck);
-
-echo $truck->IsFull();
-echo $truck->forward();
-echo '<br> Vitesse du camion : ' . $truck->getCurrentSpeed() . ' km/h ' . '<br>';
-echo $truck->brake();
-echo '<br> Vitesse du camion : ' . $truck->getCurrentSpeed() . ' km/h ' . '<br>';
+try {
+    $voiture->start();
+} catch(Exception $e){
+    // code to manage exceptions
+    $voiture->setParkBrake(false);    
+} finally {
+    echo "Ma voiture roule" . PHP_EOL;
+}
