@@ -17,11 +17,3 @@ $vélo = new Bicycle("blue", 1);
 
 echo $motor->addVehicle($voiture);
 
-try {
-    $voiture->start();
-} catch(Exception $e){
-    // code to manage exceptions
-    $voiture->setParkBrake(false);    
-} finally {
-    echo "Ma voiture roule" . PHP_EOL;
-}
