@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Véhicle.php';
+
 abstract class HightWay
 
 {
